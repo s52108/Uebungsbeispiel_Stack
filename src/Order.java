@@ -1,46 +1,51 @@
-import java.util.Arrays;
-
 public class Order {
     private String number;
-    private OrderLine[] arrayOfOrderline;
+    private OrderLine[] arrayOfOrderLines;
+
+    public Order(String number, OrderLine[] arrayOfOrderLines) {
+        this.number = number;
+        this.arrayOfOrderLines = arrayOfOrderLines;
+    }
+
+    public void printOrder() {
+        System.out.println("Order has " + arrayOfOrderLines.length + " lines:");
+        for (int i = 0; i < arrayOfOrderLines.length; i++) {
+            System.out.println(arrayOfOrderLines[i].toString());
+        }
+    }
+
+    public double getTotalCosts() {
+        double costs = 0;
+
+        for (int i = 0; i < arrayOfOrderLines.length; i++) {
+            costs = costs + arrayOfOrderLines[i].getCosts();
+        }
+
+        return costs;
+    }
+
+    public double getAverageOrderlineCosts() {
+        double costs = 0;
+        for (int i = 0; i < arrayOfOrderLines.length; i++) {
+            costs += arrayOfOrderLines[i].getCosts();
+        }
+        return costs / (arrayOfOrderLines.length * 1.0);
+    }
+
+    public double getAverageOrderlineCosts2() {
+        double totalCosts = getTotalCosts();
+        return totalCosts / (arrayOfOrderLines.length * 1.0);
+    }
+
+    public double getAverageOrderlineCosts3() {
+        return getTotalCosts() / (arrayOfOrderLines.length * 1.0);
+    }
 
     public String getNumber() {
         return number;
     }
 
-    public OrderLine[] getArrayOfOrderline() {
-        return arrayOfOrderline;
-    }
-
-    public Order(String number, OrderLine[] arraayOfOrderline) {
-        this.number = number;
-        this.arrayOfOrderline = arraayOfOrderline;
-    }
-
-    public void printBestellung() {
-
-        System.out.println("order has " + arrayOfOrderline.length + " lines.");
-        for (int i = 0; i < arrayOfOrderline.length; i++) {
-            System.out.println(arrayOfOrderline[i].toString());
-
-        }
-    }
-
-    public double getCosts() {
-
-        double costs = 0;
-        for (int i = 0; i < arrayOfOrderline.length; i++) {
-            costs = costs + arrayOfOrderline[i].getCosts();
-
-        }
-        return costs;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "number='" + number + '\'' +
-                ", arraayOfOrderline=" + Arrays.toString(arrayOfOrderline) +
-                '}';
+    public OrderLine[] getArrayOfOrderLines() {
+        return arrayOfOrderLines;
     }
 }
