@@ -1,8 +1,10 @@
-public class Card {
-    private int value;
+package stack;
+
+public class Card <T>{
+    private T value;
     private String colour;
 
-    /*    public Card(int value, String colour) {
+    /*    public stack.Card(int value, String colour) {
             if (value < 1 || value > 9) {
                 System.out.println("Nicht erlaubter Wert: " + value);
                 return;
@@ -13,7 +15,7 @@ public class Card {
             } else System.out.println("Nicht erlaubte Farbe: " + colour);
         }*/
 
-    public Card(int value, String colour) {
+    public Card(T value, String colour) {
         if (value < 1 || value > 9) {
             System.out.println("Nicht erlaubter Wert: " + value);
             return;
@@ -35,7 +37,7 @@ public class Card {
     }
 
     public String toString() {
-        return "Card{" +
+        return "stack.Card{" +
                 "value=" + value +
                 ", colour='" + colour + '\'' +
                 '}';
