@@ -11,19 +11,38 @@ public class CardStack {
     }
 
     public void push(Card newElement) {
+        // cards.length == 2
         if (cards.length > counter + 1) {
             counter++;
             cards[counter] = newElement;
-        } else System.out.println("Stack ist voll: " + newElement);
+        }
+        else {
+            System.out.println("Stack ist voll: " + newElement);
+        }
     }
 
-    public Card pop() {
-        Card result = cards[counter];
+    public Card pop(){
         if (counter >= 0) {
+            Card result = cards[counter];
             counter--;
             return result;
+        } else {
+            System.out.println("Stack ist bereits leer");
+            return null;
         }
-        else System.out.println("Stack ist bereits leer");
-        return null;
     }
 }
+Footer
+        © 2022 GitHub, Inc.
+        Footer navigation
+        Terms
+        Privacy
+        Security
+        Status
+        Docs
+        Contact GitHub
+        Pricing
+        API
+        Training
+        Blog
+        About

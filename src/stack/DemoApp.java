@@ -1,24 +1,46 @@
 package stack;
 
 public class DemoApp {
-
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hello World");
 
-        Card card = new Card(5, "red");
 
-        System.out.println(card.toString());
+        Card card = new Card(1, "red");
 
-        Card[] array = new Card[3];
+        System.out.println(card);
+
+        Card[] array = new Card[2];
         CardStack cardStack = new CardStack(array);
 
-        cardStack.push(new Card(3, "yellow"));
+        cardStack.push(new Card(3 , "yellow"));
         cardStack.push(card);
-        cardStack.push(new Card(7, "green"));
+        cardStack.push( new Card(7, "green"));
 
         Card c1 = cardStack.pop();
         System.out.println("c1 = " + c1);
+        Card c2 = cardStack.pop();
+        System.out.println("c2 = " + c2);
+        System.out.println("card = " + card);
+
+        if (card == c2) {
+            System.out.println("true");
+        }
 
 
+        cardStack.push(new Card(9, "blue"));
+        Card c3 = cardStack.pop();
+        System.out.println("c3 = " + c3);
+        Card c4 = cardStack.pop();
+        System.out.println("c4 = " + c4);
+        //Stack.Card c5 = cardStack.pop();
     }
 }
+Footer
+        © 2022 GitHub, Inc.
+        Footer navigation
+        Terms
+        Privacy
+        Security
+        Status
+        Docs
+        Contact GitHub
